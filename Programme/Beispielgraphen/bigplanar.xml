@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml>
+	<key id="type" for="graph">Indication whether the graph is directed, undirected or mixed</key>
+	<key id="kit" for="graph">Names the kit class</key>
+	<key id="representation" for="node">Names the class used as node representation</key>
+	<key id="name" for="node">The node name</key>
+	<graph>
+		<data key="type">UNDIRECTED</data>
+		<data key="kit">de.fhstralsund.vinets.structure.DefaultKit</data>
+		<node id="#_229">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="400.0" y="500.0" />
+				</point>
+			</data>
+			<data key="name">#_229</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_224">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="800.0" y="600.0" />
+				</point>
+			</data>
+			<data key="name">#_224</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_221">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="400.0" y="300.0" />
+				</point>
+			</data>
+			<data key="name">#_221</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_220">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="300.0" y="500.0" />
+				</point>
+			</data>
+			<data key="name">#_220</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_206">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="100.0" y="700.0" />
+				</point>
+			</data>
+			<data key="name">#_206</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_209">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="800.0" y="900.0" />
+				</point>
+			</data>
+			<data key="name">#_209</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_193">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="200.0" y="600.0" />
+				</point>
+			</data>
+			<data key="name">#_193</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_205">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="100.0" y="400.0" />
+				</point>
+			</data>
+			<data key="name">#_205</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_211">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="400.0" y="600.0" />
+				</point>
+			</data>
+			<data key="name">#_211</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_213">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="100.0" />
+				</point>
+			</data>
+			<data key="name">#_213</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_222">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="300.0" y="300.0" />
+				</point>
+			</data>
+			<data key="name">#_222</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_198">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="600.0" y="100.0" />
+				</point>
+			</data>
+			<data key="name">#_198</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_203">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="900.0" y="100.0" />
+				</point>
+			</data>
+			<data key="name">#_203</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_231">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="800.0" y="200.0" />
+				</point>
+			</data>
+			<data key="name">#_231</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_226">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="200.0" y="800.0" />
+				</point>
+			</data>
+			<data key="name">#_226</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_204">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="100.0" y="100.0" />
+				</point>
+			</data>
+			<data key="name">#_204</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_210">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="900.0" y="900.0" />
+				</point>
+			</data>
+			<data key="name">#_210</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_199">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="700.0" y="400.0" />
+				</point>
+			</data>
+			<data key="name">#_199</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_230">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="200.0" y="700.0" />
+				</point>
+			</data>
+			<data key="name">#_230</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_214">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="100.0" y="900.0" />
+				</point>
+			</data>
+			<data key="name">#_214</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_202">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="900.0" y="400.0" />
+				</point>
+			</data>
+			<data key="name">#_202</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_191">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="200.0" y="100.0" />
+				</point>
+			</data>
+			<data key="name">#_191</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_212">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="300.0" y="200.0" />
+				</point>
+			</data>
+			<data key="name">#_212</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_196">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="400.0" />
+				</point>
+			</data>
+			<data key="name">#_196</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_227">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="600.0" y="300.0" />
+				</point>
+			</data>
+			<data key="name">#_227</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_217">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="800.0" y="500.0" />
+				</point>
+			</data>
+			<data key="name">#_217</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_218">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="600.0" y="500.0" />
+				</point>
+			</data>
+			<data key="name">#_218</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_194">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="400.0" y="800.0" />
+				</point>
+			</data>
+			<data key="name">#_194</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_228">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="800.0" />
+				</point>
+			</data>
+			<data key="name">#_228</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_207">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="200.0" y="900.0" />
+				</point>
+			</data>
+			<data key="name">#_207</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_201">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="900.0" y="700.0" />
+				</point>
+			</data>
+			<data key="name">#_201</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_216">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="700.0" y="200.0" />
+				</point>
+			</data>
+			<data key="name">#_216</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_195">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="600.0" y="200.0" />
+				</point>
+			</data>
+			<data key="name">#_195</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_225">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="700.0" />
+				</point>
+			</data>
+			<data key="name">#_225</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_223">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="800.0" y="300.0" />
+				</point>
+			</data>
+			<data key="name">#_223</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_219">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="700.0" y="800.0" />
+				</point>
+			</data>
+			<data key="name">#_219</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_192">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="200.0" y="400.0" />
+				</point>
+			</data>
+			<data key="name">#_192</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_197">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="200.0" />
+				</point>
+			</data>
+			<data key="name">#_197</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_200">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="700.0" y="700.0" />
+				</point>
+			</data>
+			<data key="name">#_200</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_215">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="600.0" />
+				</point>
+			</data>
+			<data key="name">#_215</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<node id="#_208">
+			<data key="point">
+				<point width="30.0" height="30.0">
+					<pos x="500.0" y="900.0" />
+				</point>
+			</data>
+			<data key="name">#_208</data>
+			<data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+		</node>
+		<edge source="#_194" target="#_208" directed="false" />
+		<edge source="#_207" target="#_206" directed="false" />
+		<edge source="#_217" target="#_200" directed="false" />
+		<edge source="#_198" target="#_216" directed="false" />
+		<edge source="#_207" target="#_194" directed="false" />
+		<edge source="#_194" target="#_196" directed="false" />
+		<edge source="#_206" target="#_230" directed="false" />
+		<edge source="#_228" target="#_200" directed="false" />
+		<edge source="#_225" target="#_194" directed="false" />
+		<edge source="#_192" target="#_197" directed="false" />
+		<edge source="#_213" target="#_197" directed="false" />
+		<edge source="#_199" target="#_231" directed="false" />
+		<edge source="#_219" target="#_209" directed="false" />
+		<edge source="#_198" target="#_195" directed="false" />
+		<edge source="#_225" target="#_200" directed="false" />
+		<edge source="#_230" target="#_194" directed="false" />
+		<edge source="#_231" target="#_203" directed="false" />
+		<edge source="#_227" target="#_195" directed="false" />
+		<edge source="#_197" target="#_198" directed="false" />
+		<edge source="#_217" target="#_202" directed="false" />
+		<edge source="#_211" target="#_194" directed="false" />
+		<edge source="#_192" target="#_206" directed="false" />
+		<edge source="#_225" target="#_215" directed="false" />
+		<edge source="#_193" target="#_220" directed="false" />
+		<edge source="#_220" target="#_192" directed="false" />
+		<edge source="#_194" target="#_228" directed="false" />
+		<edge source="#_201" target="#_200" directed="false" />
+		<edge source="#_200" target="#_194" directed="false" />
+		<edge source="#_200" target="#_208" directed="false" />
+		<edge source="#_229" target="#_196" directed="false" />
+		<edge source="#_200" target="#_219" directed="false" />
+		<edge source="#_208" target="#_209" directed="false" />
+		<edge source="#_216" target="#_203" directed="false" />
+		<edge source="#_212" target="#_192" directed="false" />
+		<edge source="#_199" target="#_200" directed="false" />
+		<edge source="#_216" target="#_199" directed="false" />
+		<edge source="#_222" target="#_192" directed="false" />
+		<edge source="#_195" target="#_196" directed="false" />
+		<edge source="#_211" target="#_193" directed="false" />
+		<edge source="#_196" target="#_215" directed="false" />
+		<edge source="#_221" target="#_197" directed="false" />
+		<edge source="#_193" target="#_229" directed="false" />
+		<edge source="#_196" target="#_218" directed="false" />
+		<edge source="#_215" target="#_200" directed="false" />
+		<edge source="#_192" target="#_193" directed="false" />
+		<edge source="#_196" target="#_193" directed="false" />
+		<edge source="#_191" target="#_197" directed="false" />
+		<edge source="#_213" target="#_198" directed="false" />
+		<edge source="#_206" target="#_226" directed="false" />
+		<edge source="#_192" target="#_196" directed="false" />
+		<edge source="#_202" target="#_201" directed="false" />
+		<edge source="#_212" target="#_197" directed="false" />
+		<edge source="#_221" target="#_196" directed="false" />
+		<edge source="#_205" target="#_191" directed="false" />
+		<edge source="#_196" target="#_200" directed="false" />
+		<edge source="#_200" target="#_202" directed="false" />
+		<edge source="#_206" target="#_194" directed="false" />
+		<edge source="#_214" target="#_207" directed="false" />
+		<edge source="#_218" target="#_200" directed="false" />
+		<edge source="#_226" target="#_207" directed="false" />
+		<edge source="#_193" target="#_194" directed="false" />
+		<edge source="#_217" target="#_199" directed="false" />
+		<edge source="#_204" target="#_191" directed="false" />
+		<edge source="#_195" target="#_197" directed="false" />
+		<edge source="#_206" target="#_214" directed="false" />
+		<edge source="#_196" target="#_211" directed="false" />
+		<edge source="#_206" target="#_193" directed="false" />
+		<edge source="#_209" target="#_210" directed="false" />
+		<edge source="#_201" target="#_224" directed="false" />
+		<edge source="#_198" target="#_199" directed="false" />
+		<edge source="#_215" target="#_194" directed="false" />
+		<edge source="#_218" target="#_199" directed="false" />
+		<edge source="#_223" target="#_202" directed="false" />
+		<edge source="#_206" target="#_205" directed="false" />
+		<edge source="#_224" target="#_200" directed="false" />
+		<edge source="#_226" target="#_194" directed="false" />
+		<edge source="#_202" target="#_199" directed="false" />
+		<edge source="#_212" target="#_222" directed="false" />
+		<edge source="#_204" target="#_205" directed="false" />
+		<edge source="#_208" target="#_207" directed="false" />
+		<edge source="#_203" target="#_198" directed="false" />
+		<edge source="#_222" target="#_197" directed="false" />
+		<edge source="#_199" target="#_203" directed="false" />
+		<edge source="#_203" target="#_202" directed="false" />
+		<edge source="#_192" target="#_191" directed="false" />
+		<edge source="#_191" target="#_213" directed="false" />
+		<edge source="#_210" target="#_201" directed="false" />
+		<edge source="#_200" target="#_210" directed="false" />
+		<edge source="#_228" target="#_208" directed="false" />
+		<edge source="#_223" target="#_199" directed="false" />
+		<edge source="#_209" target="#_200" directed="false" />
+		<edge source="#_196" target="#_227" directed="false" />
+		<edge source="#_224" target="#_202" directed="false" />
+		<edge source="#_205" target="#_192" directed="false" />
+		<edge source="#_195" target="#_199" directed="false" />
+		<edge source="#_220" target="#_196" directed="false" />
+		<edge source="#_199" target="#_196" directed="false" />
+		<edge source="#_227" target="#_199" directed="false" />
+		<edge source="#_223" target="#_203" directed="false" />
+		<edge source="#_221" target="#_192" directed="false" />
+		<edge source="#_197" target="#_196" directed="false" />
+		<edge source="#_212" target="#_191" directed="false" />
+		<edge source="#_219" target="#_208" directed="false" />
+	</graph>
+</graphml>
+<!--Generated by VinetS Framework/Editor 03-14-2003 at Thu Apr 03 10:29:06 CEST 2003-->
+
