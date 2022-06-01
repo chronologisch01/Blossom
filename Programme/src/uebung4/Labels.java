@@ -5,7 +5,7 @@ package uebung4;
  */
 public enum Labels {
   // keys for labels:
-  COLOR, BFSNO, DEGREE, DFSNO, DFS_F, DISTANCE, FATHER, LOWPOINT, TYPE, VISITED,
+  COLOR, BFSNO, DEGREE, DFSNO, DFS_F, DISTANCE, FATHER, LOWPOINT, TYPE, VISITED, MATE,
   // values for labels:
   WHITE, GRAY, BLACK, TREE, BACK, FORWARD, CROSS
 }
