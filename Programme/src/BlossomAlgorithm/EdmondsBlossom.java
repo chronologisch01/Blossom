@@ -17,7 +17,6 @@ import java.util.List;
 public class EdmondsBlossom implements Algorithm {
 
     private Graph graph;
-    private Queue<Node> queue;
     private Stack<Node> superNodes;
     private boolean usedSuperNode;
 
@@ -41,35 +40,26 @@ public class EdmondsBlossom implements Algorithm {
     public Parameter execute(Parameter input) {
         superNodes = new Stack<>();
         graph = input.getGraph();
-        usedSuperNode=false;
-
-
-        queue = new ArrayDeque<>();
-
-        Node node = (Node) graph.nodes().next();
-        node.getLabel(DISTANCE);
-        node.setIntLabel(DISTANCE, 0);
-
-        queue.add(node);
+        usedSuperNode = false;
 
         findMaximumMatching(graph.nodeSet());
 
         changeGeometry();
-        if(usedSuperNode)return new Parameter(graph, "Supernodes have been used!");
+        if (usedSuperNode) return new Parameter(graph, "Supernodes have been used!");
         return new Parameter(graph, "finished!");
     }
 
-    public void change(){
+    public void change() {
         Set<Node> nodeSet = graph.nodeSet();
 
-        for(Node node : nodeSet){
-            if(node.getName().equals("#_981")){
+        for (Node node : nodeSet) {
+            if (node.getName().equals("#_981")) {
                 Iterator<Edge> edgeIterator = node.undirectedEdges();
-                while(edgeIterator.hasNext()){
+                while (edgeIterator.hasNext()) {
                     Node other = edgeIterator.next().getOtherEnd(node);
-                    if(other.getName().equals("#_987")){
+                    if (other.getName().equals("#_987")) {
                         other.setLabel(MATE, node);
-                        node.setLabel(MATE,other);
+                        node.setLabel(MATE, other);
                     }
                 }
             }
@@ -81,7 +71,7 @@ public class EdmondsBlossom implements Algorithm {
         Set<Node> nodeSet = graph.nodeSet();
         // This is really inefficient. But what would be better?
         // We would have to find a way to
-        int counter =0;
+        int counter = 0;
         for (Node node : nodeSet) {
             if (node.getLabel(MATE) != null) {
                 Iterator<Edge> edgeIterator = node.undirectedEdges();
@@ -91,35 +81,22 @@ public class EdmondsBlossom implements Algorithm {
                     // TODO just for testing purposes, this has to be fixed. Label Mate should always exist in the graph!
                     if (!graph.nodeSet().contains(edge.getOtherEnd(node))) continue;
                     System.out.println(edge);
-                        if(edge.getOtherEnd(node)==node.getLabel(MATE)){
-                            counter++;
-                            System.out.println("Edge is :" + edge);
-                            System.out.println("Representation is :"+ edge.getRepresentation());
+                    if (edge.getOtherEnd(node) == node.getLabel(MATE)) {
+                        counter++;
+                        System.out.println("Edge is :" + edge);
+                        System.out.println("Representation is :" + edge.getRepresentation());
 
-                            // Somehow edge.getRepresentation is null even though the edge exists!?;
-//                            edge.getRepresentation().setColor(java.awt.Color.RED);
-                            break;
-                        }
+                        // Somehow edge.getRepresentation is null even though the edge exists!?;
+//                        edge.getRepresentation().setColor(java.awt.Color.RED);
+                        break;
+                    }
                 }
 
             }
         }
-        System.out.println("Matching is:"+ counter/2);
+        System.out.println("Matching is:" + counter / 2);
         System.out.println("NodeSet is: " + Arrays.toString(graph.nodeSet().toArray()));
         System.out.println("Supernodes are :" + Arrays.toString(superNodes.toArray()));
-
-//        Iterator<Node> nodeIterator = graph.nodes();
-//        while(nodeIterator.hasNext()){
-//            Node node = nodeIterator.next();
-//            NodeRepresentation nodeRepresentation = (NodeRepresentation) node.getRepresentation();
-//            nodeRepresentation.setFilled(true);
-//            System.out.println(node.getIntLabel(DISTANCE));
-//            if(node.getIntLabel(DISTANCE)%2==0){
-//                nodeRepresentation.setColor(Color.RED);
-//            } else {
-//                nodeRepresentation.setColor(Color.BLUE);
-//            }
-//        }
     }
 
 
@@ -154,22 +131,22 @@ public class EdmondsBlossom implements Algorithm {
         }
 
         while (superNodes.size() > 0) {
-            System.out.println("Supernodes before: "+superNodes);
+            System.out.println("Supernodes before: " + superNodes);
             Node blossom = superNodes.pop();
-            System.out.println("Supernode that should have been deleted :"+ blossom);
-            System.out.println("Supernodes after: "+superNodes);
+            System.out.println("Supernode that should have been deleted :" + blossom);
+            System.out.println("Supernodes after: " + superNodes);
             expandBlossom(blossom);
-            System.out.println("Path before: "+ Arrays.toString(path.toArray()) + " and trying to remove "+ blossom);
+            System.out.println("Path before: " + Arrays.toString(path.toArray()) + " and trying to remove " + blossom);
             replacePath(blossom, path);
-            System.out.println("Path after: "+ Arrays.toString(path.toArray()));
+            System.out.println("Path after: " + Arrays.toString(path.toArray()));
         }
 
-        while (path.get(0).getLabel(MATE) != null){
+        while (path.get(0).getLabel(MATE) != null) {
             path.add(0, (Node) path.get(0).getLabel(FATHER));
         }
 
-        while (path.get(path.size()-1).getLabel(MATE) != null){
-            path.add( (Node) path.get(path.size()-1).getLabel(FATHER));
+        while (path.get(path.size() - 1).getLabel(MATE) != null) {
+            path.add((Node) path.get(path.size() - 1).getLabel(FATHER));
         }
 
         return path;
@@ -241,9 +218,9 @@ public class EdmondsBlossom implements Algorithm {
 
                     return constructAugmentingPath(node);
                 }
-                Node mate = (Node)node.getLabel(MATE);
+                Node mate = (Node) node.getLabel(MATE);
                 if (mate != currentNode) {
-                    System.out.println("CurrentNode and mate are: "+ currentNode + node.getLabel(MATE));
+                    System.out.println("CurrentNode and mate are: " + currentNode + node.getLabel(MATE));
                     node.setBooleanLabel(VISITED, true);
                     mate.setLabel(VISITED, true);
                     node.setLabel(FATHER, currentNode);
@@ -256,17 +233,7 @@ public class EdmondsBlossom implements Algorithm {
 
         }
         System.out.println("OUTSIDE OF LOOP");
-        System.out.println("AND SUPERNODES ARE:"+ Arrays.toString(superNodes.toArray()));
-
-//        while (superNodes.size() > 0) {
-//            System.out.println("Supernodes before: "+superNodes);
-//            Node blossom = superNodes.pop();
-//            System.out.println("Supernode that should have been deleted :"+ blossom);
-//            System.out.println("Supernodes after: "+superNodes);
-//            expandBlossom(blossom);
-//        }
-
-
+        System.out.println("AND SUPERNODES ARE:" + Arrays.toString(superNodes.toArray()));
         System.out.println("findAugmentingPath: none found!");
         return null;
     }
@@ -277,7 +244,7 @@ public class EdmondsBlossom implements Algorithm {
         for (Node node : nodeSet) {
             node.setLabel(MATE, null);
         }
-       // change();
+        // change();
         boolean foundPath = true;
 
         while (foundPath) {
@@ -288,7 +255,7 @@ public class EdmondsBlossom implements Algorithm {
             for (int i = 0; i < nodeList.size(); i++) {
                 Node node = nodeList.get(i);
                 // The second one literally cost me 5 hours
-                if (used.contains(node)|| node.getLabel(MATE)!=null) continue;
+                if (used.contains(node) || node.getLabel(MATE) != null) continue;
 //                if (node.getLabel(MATE)!=null) continue;
 
 
@@ -301,17 +268,11 @@ public class EdmondsBlossom implements Algorithm {
                 invertPath(path);
                 used.add(path.get(0));
                 used.add(path.get(path.size() - 1));
-//                for(Node blossom : superNodes){
-//                    expandBlossom(blossom);
-//                }
-//                superNodes=new ArrayList<>();
                 foundPath = true;
                 break;
-//                nodeSet.remove(path.get(0));
-//                nodeSet.remove(path.get(path.size()-1));
             }
         }
-        System.out.println("matching foudn !");
+        System.out.println("matching found !");
     }
 
 
@@ -340,7 +301,7 @@ public class EdmondsBlossom implements Algorithm {
 //            System.out.println("node is :" + node.getName());
 //            System.out.println("father is :" + node.getLabel(FATHER));
 //            System.out.println("father of father is :" + ((Node)node.getLabel(FATHER)).getLabel(FATHER));
-            if(node==((Node)node.getLabel(FATHER)).getLabel(FATHER)){
+            if (node == ((Node) node.getLabel(FATHER)).getLabel(FATHER)) {
                 System.out.println("Node is same as father of father!!!");
             }
             node = (Node) node.getLabel(FATHER);
@@ -351,7 +312,7 @@ public class EdmondsBlossom implements Algorithm {
 
     private Node shrinkBlossom(List<Node> blossom) {
         // Uses UUID because name has to be unique
-        Node superNode = graph.createNode("supernode"+ UUID.randomUUID().toString());
+        Node superNode = graph.createNode("supernode" + UUID.randomUUID().toString());
         // Not sure wether or not the Node item has an equals or hash function implemented, so I'm just using the string as a key
         HashMap<String, Set<Node>> nodeMapping = new HashMap<>();
         for (Node node : blossom) {
@@ -376,7 +337,7 @@ public class EdmondsBlossom implements Algorithm {
                 for (Node other : nodeMapping.get(node.getName())) {
                     try {
                         System.out.println("Trying to create node between: " + superNode + " and " + other);
-                        graph.remove(getEdgeBetween(node,other));
+                        graph.remove(getEdgeBetween(node, other));
                         graph.createEdge(superNode, other);
                     } catch (ConcurrentModificationException e) {
                         System.out.println("Edge already exists!");
@@ -392,103 +353,101 @@ public class EdmondsBlossom implements Algorithm {
         return superNode;
     }
 
-    public void expandBlossom(Node blossom){
-        usedSuperNode=true;
+    public void expandBlossom(Node blossom) {
+        usedSuperNode = true;
         List<Node> blossomNodes = (List<Node>) blossom.getLabel(INITIAL_NODES);
         HashMap<String, Set<Node>> nodeMapping = (HashMap<String, Set<Node>>) blossom.getLabel(INITIAL_MAPPING);
-        Iterator<Edge> edgeIterator= blossom.undirectedEdges();
+        Iterator<Edge> edgeIterator = blossom.undirectedEdges();
         // Cannot remove edges while iterating over them!
         List<Edge> toBeRemoved = new ArrayList<>();
-        while(edgeIterator.hasNext()){
+        while (edgeIterator.hasNext()) {
             toBeRemoved.add(edgeIterator.next());
         }
-        for(Edge edge : toBeRemoved){
+        for (Edge edge : toBeRemoved) {
             graph.remove(edge);
         }
 
 
-
-
-        for(Node node : blossomNodes){
+        for (Node node : blossomNodes) {
             // Otherwise NullPointerException is thrown, because key does not exist.
-            if(!nodeMapping.containsKey(node.getName()))continue;
+            if (!nodeMapping.containsKey(node.getName())) continue;
 
-            for(Node other: nodeMapping.get(node.getName())){
-                if(other.getLabel(MATE)==blossom){
+            for (Node other : nodeMapping.get(node.getName())) {
+                if (other.getLabel(MATE) == blossom) {
                     other.setLabel(MATE, node);
                     node.setLabel(MATE, other);
                 }
-                System.out.println("Trying to recreate edge between :" + node + "and "+ other);
-                System.out.println("Current supernodes are :" +superNodes);
-                System.out.println("Current blossom is :"+ blossom);
-                System.out.println("Nodeset :" +Arrays.toString(graph.nodeSet().toArray()));
+                System.out.println("Trying to recreate edge between :" + node + "and " + other);
+                System.out.println("Current supernodes are :" + superNodes);
+                System.out.println("Current blossom is :" + blossom);
+                System.out.println("Nodeset :" + Arrays.toString(graph.nodeSet().toArray()));
                 graph.createEdge(node, other);
             }
         }
 
-        System.out.println("Nodeset before remove: "+ Arrays.toString(graph.nodeSet().toArray()));
+        System.out.println("Nodeset before remove: " + Arrays.toString(graph.nodeSet().toArray()));
         // It seems to be possible to make edges to the blossom in the loop before
         graph.remove(blossom);
-        System.out.println("Nodeset after remove: "+ Arrays.toString(graph.nodeSet().toArray()));
+        System.out.println("Nodeset after remove: " + Arrays.toString(graph.nodeSet().toArray()));
 
         System.out.println("Successfully recreated supernode!");
 
     }
 
-    private void replacePath(Node blossom, List<Node> path){
+    private void replacePath(Node blossom, List<Node> path) {
         int index = path.indexOf(blossom);
         System.out.println(blossom);
-        System.out.println("The index is: " +index);
+        System.out.println("The index is: " + index);
         System.out.println(Arrays.toString(path.toArray()));
         // TODO path.size() or -1 ?
 
         // Definetly need to think about this!
-        if(index==-1)index=path.size()-1;
+        if (index == -1) index = path.size() - 1;
         List<Node> tempPath = path.subList(0, index);
 
-        Node current = tempPath.get(tempPath.size()-1);
+        Node current = tempPath.get(tempPath.size() - 1);
         List<Node> blossomNodes = (List<Node>) blossom.getLabel(INITIAL_NODES);
         HashMap<String, Set<Node>> mapping = (HashMap<String, Set<Node>>) blossom.getLabel(INITIAL_MAPPING);
 
-        for(Node[] edge : getEdges(blossomNodes, mapping)){
+        for (Node[] edge : getEdges(blossomNodes, mapping)) {
             // TODO maybe continue instead of break?
-            if(edge[0]== current){
+            if (edge[0] == current) {
                 current = edge[1];
                 break;
             }
-            if(edge[1]==current){
-                current=edge[0];
+            if (edge[1] == current) {
+                current = edge[0];
                 break;
             }
         }
 
-        while(current.getLabel(FATHER)!=blossom.getLabel(FATHER)){
+        while (current.getLabel(FATHER) != blossom.getLabel(FATHER)) {
             tempPath.add(current);
-            tempPath.add((Node)current.getLabel(MATE));
+            tempPath.add((Node) current.getLabel(MATE));
 
-            Iterator<Edge> edgeIterator = ((Node)current.getLabel(MATE)).undirectedEdges();
-            while(edgeIterator.hasNext()){
-                Node other = edgeIterator.next().getOtherEnd((Node)current.getLabel(MATE));
-                if(other!=current && blossomNodes.contains(other)){
-                    current=other;
+            Iterator<Edge> edgeIterator = ((Node) current.getLabel(MATE)).undirectedEdges();
+            while (edgeIterator.hasNext()) {
+                Node other = edgeIterator.next().getOtherEnd((Node) current.getLabel(MATE));
+                if (other != current && blossomNodes.contains(other)) {
+                    current = other;
                     break;
                 }
             }
 
         }
         tempPath.add(current);
-        tempPath.addAll(path.subList(index+1, path.size()));
-        path=tempPath;
+        tempPath.addAll(path.subList(index + 1, path.size()));
+        path = tempPath;
 
 
     }
 
-    private List<Node[]> getEdges(List<Node> blossom, HashMap<String, Set<Node>> mapping){
+    private List<Node[]> getEdges(List<Node> blossom, HashMap<String, Set<Node>> mapping) {
         List<Node[]> edges = new ArrayList<>();
 
-        for(Node node : blossom){
-            if(mapping.containsKey(node.getName())){
-                for(Node other: mapping.get(node.getName())){
+        for (Node node : blossom) {
+            if (mapping.containsKey(node.getName())) {
+                for (Node other : mapping.get(node.getName())) {
                     edges.add(new Node[]{node, other});
                 }
             }
@@ -497,42 +456,16 @@ public class EdmondsBlossom implements Algorithm {
         return edges;
     }
 
-
-
-    private Edge getEdgeBetween(Node n1, Node n2){
+    private Edge getEdgeBetween(Node n1, Node n2) {
         Iterator<Edge> edgeIterator = n1.undirectedEdges();
-        while(edgeIterator.hasNext()){
+        while (edgeIterator.hasNext()) {
             Edge edge = edgeIterator.next();
-            if(edge.getOtherEnd(n1)==n2){
+            if (edge.getOtherEnd(n1) == n2) {
                 return edge;
             }
         }
-        System.out.println("No edge found for following nodes: "+ n1 + " " + n2);
+        System.out.println("No edge found for following nodes: " + n1 + " " + n2);
         return null;
     }
 
-
-    private void BFS() {
-        while (!queue.isEmpty()) {
-            System.out.println("test");
-            Node node = queue.poll();
-
-            Iterator<Edge> edgeIterator = node.undirectedEdges();
-            while (edgeIterator.hasNext()) {
-                Edge edge = edgeIterator.next();
-                Node other = edge.getOtherEnd(node);
-
-                if (other.getBooleanLabel(VISITED)) continue;
-
-                other.setIntLabel(DISTANCE, node.getIntLabel(DISTANCE) + 1);
-                if (other.getIntLabel(DISTANCE) % 2 == 0) {
-                    other.setLabel(COLOR, WHITE);
-                } else {
-                    other.setLabel(COLOR, BLACK);
-                }
-                other.setBooleanLabel(VISITED, true);
-                queue.add(other);
-            }
-        }
-    }
 }
