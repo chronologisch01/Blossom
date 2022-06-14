@@ -423,8 +423,10 @@ public class EdmondsBlossom implements Algorithm {
         }
 
         while (current.getLabel(FATHER) != blossom.getLabel(FATHER)) {
+            System.out.println("Current:" + current + "has father"+ current.getLabel(FATHER)+ " but needs to be" + blossom+ " with father "+ blossom.getLabel(FATHER));
             tempPath.add(current);
             tempPath.add((Node) current.getLabel(MATE));
+
 
             Iterator<Edge> edgeIterator = ((Node) current.getLabel(MATE)).undirectedEdges();
             while (edgeIterator.hasNext()) {
