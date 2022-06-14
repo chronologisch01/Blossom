@@ -201,6 +201,7 @@ public class EdmondsBlossom implements Algorithm {
                         }
                         superNode.setLabel(FATHER, (Node) node.getLabel(FATHER));
                         superNode.setLabel(MATE, (Node) node.getLabel(MATE));
+                        superNode.setBooleanLabel(VISITED,true);
                         queue.addFirst(superNode);
                         superNodes.add(superNode);
                         System.out.println("Supernode has been added!");
@@ -302,7 +303,7 @@ public class EdmondsBlossom implements Algorithm {
 //            System.out.println("father is :" + node.getLabel(FATHER));
 //            System.out.println("father of father is :" + ((Node)node.getLabel(FATHER)).getLabel(FATHER));
             if (node == ((Node) node.getLabel(FATHER)).getLabel(FATHER)) {
-                System.out.println("Node is same as father of father!!!");
+                System.out.println("Node is same as father of father!!! Node is"+ node+ "and father is "+ node.getLabel(FATHER));
             }
             node = (Node) node.getLabel(FATHER);
             nodeList.add(node);
