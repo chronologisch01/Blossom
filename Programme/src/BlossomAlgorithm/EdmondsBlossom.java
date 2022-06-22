@@ -2,6 +2,7 @@ package BlossomAlgorithm;
 
 import de.fhstralsund.vinets.algorithm.Algorithm;
 import de.fhstralsund.vinets.algorithm.Parameter;
+import de.fhstralsund.vinets.control.GraphApplication;
 import de.fhstralsund.vinets.graphics.NodeRepresentation;
 import de.fhstralsund.vinets.structure.Edge;
 import de.fhstralsund.vinets.structure.Graph;
@@ -80,48 +81,42 @@ public class EdmondsBlossom implements Algorithm {
                     Edge edge = edgeIterator.next();
                     // TODO just for testing purposes, this has to be fixed. Label Mate should always exist in the graph!
                     if (!graph.nodeSet().contains(edge.getOtherEnd(node))) continue;
-                    System.out.println(edge);
                     if (edge.getOtherEnd(node) == node.getLabel(MATE)) {
                         counter++;
-                        System.out.println("Edge is :" + edge);
-                        System.out.println("Representation is :" + edge.getRepresentation());
 
                         // Somehow edge.getRepresentation is null even though the edge exists!?;
-//                        edge.getRepresentation().setColor(java.awt.Color.RED);
+                        GraphApplication.getInstance().getDeployer().deployLink(edge);
+                        edge.getRepresentation().setColor(java.awt.Color.RED);
+
                         break;
                     }
                 }
 
             }
         }
-        System.out.println("Matching is:" + counter / 2);
-        System.out.println("NodeSet is: " + Arrays.toString(graph.nodeSet().toArray()));
-        System.out.println("Supernodes are :" + Arrays.toString(superNodes.toArray()));
     }
 
 
     private void invertPath(List<Node> nodeList) {
         if (nodeList == null) {
-            System.out.println("NodeList is null!!!");
             return;
         }
-        if (nodeList.size() % 2 == 0) System.out.println("Size assertion Failed!");
+        if (nodeList.size() % 2 != 0){
+            System.out.println("Size assertion Failed!");
+            System.out.println("NodeList is: "+ Arrays.toString(nodeList.toArray()));
+        }
         for (int i = 0; i < nodeList.size() - 1; i += 2) {
             Node firstNode = nodeList.get(i);
             Node secondNode = nodeList.get(i + 1);
             firstNode.setLabel(MATE, secondNode);
             secondNode.setLabel(MATE, firstNode);
-            System.out.println("Path constructed between: " + firstNode.getName() + " and " + secondNode.getName());
         }
     }
 
     private List<Node> constructAugmentingPath(Node node) {
         List<Node> path = new ArrayList<>(List.of(node));
-        System.out.println("FATHER: " + node.getLabel(FATHER));
         node = (Node) node.getLabel(FATHER);
-        System.out.println("this should not be null:" + node);
         path.add(node);
-        System.out.println(node.getLabel(MATE));
         while (node.getLabel(MATE) != null) {
             System.out.println("mate:" + node.getLabel(MATE));
             System.out.println("father:" + node.getLabel(FATHER));
@@ -169,9 +164,7 @@ public class EdmondsBlossom implements Algorithm {
         Deque<Node> queue = new ArrayDeque<>(List.of(root));
 
         while (!queue.isEmpty()) {
-            System.out.println("Queue size before" + queue.size());
             Node currentNode = queue.poll();
-            System.out.println("Queue size after" + queue.size());
             currentNode.setBooleanLabel(VISITED, true);
             Iterator<Edge> edges = currentNode.undirectedEdges();
             while (edges.hasNext()) {
@@ -183,11 +176,8 @@ public class EdmondsBlossom implements Algorithm {
 
                 if (node.getBooleanLabel(VISITED)) {
                     //usedSuperNode=true;
-                    System.out.println("already visited!");
                     List<Node> cycle = getCycle(node, currentNode);
-                    System.out.println("Cycle found! : " + cycle);
                     if (cycle.size() % 2 == 1) {
-                        System.out.println("Not bipartit!:" + cycle);
                         Node superNode = shrinkBlossom(cycle);
 
                         for (Node n : cycle) {
@@ -204,16 +194,13 @@ public class EdmondsBlossom implements Algorithm {
                         superNode.setBooleanLabel(VISITED,true);
                         queue.addFirst(superNode);
                         superNodes.add(superNode);
-                        System.out.println("Supernode has been added!");
                         break;
                     }
 
 
                     continue;
                 }
-                System.out.println("findAugmenting (120): " + node.getLabel(MATE));
                 if (node.getLabel(MATE) == null) {
-                    System.out.println("Father is going to be: " + currentNode);
                     node.setLabel(FATHER, currentNode);
 
 
@@ -221,7 +208,6 @@ public class EdmondsBlossom implements Algorithm {
                 }
                 Node mate = (Node) node.getLabel(MATE);
                 if (mate != currentNode) {
-                    System.out.println("CurrentNode and mate are: " + currentNode + node.getLabel(MATE));
                     node.setBooleanLabel(VISITED, true);
                     mate.setLabel(VISITED, true);
                     node.setLabel(FATHER, currentNode);
@@ -233,9 +219,6 @@ public class EdmondsBlossom implements Algorithm {
             }
 
         }
-        System.out.println("OUTSIDE OF LOOP");
-        System.out.println("AND SUPERNODES ARE:" + Arrays.toString(superNodes.toArray()));
-        System.out.println("findAugmentingPath: none found!");
         return null;
     }
 
@@ -261,9 +244,7 @@ public class EdmondsBlossom implements Algorithm {
 
 
                 List<Node> path = findAugmentingPath(node);
-                System.out.println("Did found an augmenting path and it is :" + path);
                 if (path == null) {
-                    System.out.println("findMaximumMatching no path found!");
                     continue;
                 }
                 invertPath(path);
@@ -273,12 +254,10 @@ public class EdmondsBlossom implements Algorithm {
                 break;
             }
         }
-        System.out.println("matching found !");
     }
 
-
+    // Bin mir bei dieser Methode nicht sicher
     private List<Node> getCycle(Node node1, Node node2) {
-        // TODO: this looks really weird!
         List<Node> ancestors1 = findAncestors(node1);
         List<Node> ancestors2 = findAncestors(node2);
 
@@ -299,11 +278,16 @@ public class EdmondsBlossom implements Algorithm {
     private List<Node> findAncestors(Node node) {
         List<Node> nodeList = new ArrayList<>(List.of(node));
         while (node.getLabel(FATHER) != null) {
-//            System.out.println("node is :" + node.getName());
-//            System.out.println("father is :" + node.getLabel(FATHER));
-//            System.out.println("father of father is :" + ((Node)node.getLabel(FATHER)).getLabel(FATHER));
+
             if (node == ((Node) node.getLabel(FATHER)).getLabel(FATHER)) {
                 System.out.println("Node is same as father of father!!! Node is"+ node+ "and father is "+ node.getLabel(FATHER));
+                if(node.getName().contains("supernode")){
+                    System.out.println("Nodes in first: "+ node.getLabel(INITIAL_MAPPING));
+                }
+
+                if(((Node)node.getLabel(FATHER)).getName().contains("supernode")){
+                    System.out.println("Nodes in father: "+ node.getLabel(INITIAL_MAPPING));
+                }
             }
             node = (Node) node.getLabel(FATHER);
             nodeList.add(node);
@@ -338,6 +322,8 @@ public class EdmondsBlossom implements Algorithm {
                 for (Node other : nodeMapping.get(node.getName())) {
                     try {
                         System.out.println("Trying to create node between: " + superNode + " and " + other);
+                        System.out.println("Node is "+ node +" and other is"+ other);
+                        System.out.println(getEdgeBetween(node, other));
                         graph.remove(getEdgeBetween(node, other));
                         graph.createEdge(superNode, other);
                     } catch (ConcurrentModificationException e) {
@@ -350,7 +336,6 @@ public class EdmondsBlossom implements Algorithm {
         }
         superNode.setLabel(INITIAL_NODES, blossom);
         superNode.setLabel(INITIAL_MAPPING, nodeMapping);
-        System.out.println(nodeMapping);
         return superNode;
     }
 
@@ -378,28 +363,18 @@ public class EdmondsBlossom implements Algorithm {
                     other.setLabel(MATE, node);
                     node.setLabel(MATE, other);
                 }
-                System.out.println("Trying to recreate edge between :" + node + "and " + other);
-                System.out.println("Current supernodes are :" + superNodes);
-                System.out.println("Current blossom is :" + blossom);
-                System.out.println("Nodeset :" + Arrays.toString(graph.nodeSet().toArray()));
                 graph.createEdge(node, other);
             }
         }
 
-        System.out.println("Nodeset before remove: " + Arrays.toString(graph.nodeSet().toArray()));
         // It seems to be possible to make edges to the blossom in the loop before
         graph.remove(blossom);
-        System.out.println("Nodeset after remove: " + Arrays.toString(graph.nodeSet().toArray()));
 
-        System.out.println("Successfully recreated supernode!");
 
     }
 
     private void replacePath(Node blossom, List<Node> path) {
         int index = path.indexOf(blossom);
-        System.out.println(blossom);
-        System.out.println("The index is: " + index);
-        System.out.println(Arrays.toString(path.toArray()));
         // TODO path.size() or -1 ?
 
         // Definetly need to think about this!
@@ -423,7 +398,6 @@ public class EdmondsBlossom implements Algorithm {
         }
 
         while (current.getLabel(FATHER) != blossom.getLabel(FATHER)) {
-            System.out.println("Current:" + current + "has father"+ current.getLabel(FATHER)+ " but needs to be" + blossom+ " with father "+ blossom.getLabel(FATHER));
             tempPath.add(current);
             tempPath.add((Node) current.getLabel(MATE));
 
@@ -467,7 +441,6 @@ public class EdmondsBlossom implements Algorithm {
                 return edge;
             }
         }
-        System.out.println("No edge found for following nodes: " + n1 + " " + n2);
         return null;
     }
 
