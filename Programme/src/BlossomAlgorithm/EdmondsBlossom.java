@@ -311,7 +311,7 @@ public class EdmondsBlossom implements Algorithm {
 
 //                nodeMapping.putIfAbsent(node.getName(), new HashSet<>()).add(other);
                 // Could make a HashSet for that since this will be O(1) in time instead of O(n)
-                if (!blossom.contains(other.getLabel(FATHER))) {
+                if (blossom.contains(other.getLabel(FATHER))) {
                     other.setLabel(FATHER, superNode);
                 }
             }
