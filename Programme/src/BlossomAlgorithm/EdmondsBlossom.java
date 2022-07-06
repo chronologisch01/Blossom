@@ -19,6 +19,8 @@ public class EdmondsBlossom implements Algorithm {
 
     private Graph graph;
     private Stack<Node> superNodes;
+
+    private Map<List, List<List>> cycles;
     private boolean usedSuperNode;
 
     @Override
@@ -40,6 +42,7 @@ public class EdmondsBlossom implements Algorithm {
     @Override
     public Parameter execute(Parameter input) {
         superNodes = new Stack<>();
+        cycles = new HashMap<>();
         graph = input.getGraph();
         usedSuperNode = false;
 
@@ -264,14 +267,21 @@ public class EdmondsBlossom implements Algorithm {
         int i = ancestors1.size() - 1;
         int j = ancestors2.size() - 1;
 
-        while (i >= 0 && j > 0 && ancestors1.get(i) == ancestors2.get(j)) {
+        while (i >= 0 && j >= 0 && ancestors1.get(i) == ancestors2.get(j)) {
             i--;
             j--;
         }
 
         List<Node> cycle = new ArrayList<>();
-        cycle.addAll(ancestors1.subList(0, i + 1));
-        cycle.addAll(ancestors2.subList(j, ancestors2.size() - 1));
+        cycle.addAll(ancestors1.subList(0, i + 2));
+        cycle.addAll(ancestors2.subList(0, j+1));
+
+        if(cycle.size() %2==1){
+            ArrayList<List> list = new ArrayList<>();
+            list.add(ancestors1);
+            list.add(ancestors2);
+            cycles.put(cycle, list);
+        }
         return cycle;
     }
 
@@ -322,9 +332,10 @@ public class EdmondsBlossom implements Algorithm {
                 for (Node other : nodeMapping.get(node.getName())) {
                     try {
                         System.out.println("Trying to create node between: " + superNode + " and " + other);
+                        System.out.println("cycles were "+ cycles);
                         System.out.println("Node is "+ node +" and other is"+ other);
                         System.out.println(getEdgeBetween(node, other));
-                        graph.remove(getEdgeBetween(node, other));
+                        if(getEdgeBetween(node, other)!=null)graph.remove(getEdgeBetween(node, other));
                         graph.createEdge(superNode, other);
                     } catch (ConcurrentModificationException e) {
                         System.out.println("Edge already exists!");
@@ -346,6 +357,8 @@ public class EdmondsBlossom implements Algorithm {
         Iterator<Edge> edgeIterator = blossom.undirectedEdges();
         // Cannot remove edges while iterating over them!
         List<Edge> toBeRemoved = new ArrayList<>();
+
+        // TODO: Use a ListIterator here
         while (edgeIterator.hasNext()) {
             toBeRemoved.add(edgeIterator.next());
         }
@@ -359,10 +372,11 @@ public class EdmondsBlossom implements Algorithm {
             if (!nodeMapping.containsKey(node.getName())) continue;
 
             for (Node other : nodeMapping.get(node.getName())) {
-                if (other.getLabel(MATE) == blossom) {
-                    other.setLabel(MATE, node);
-                    node.setLabel(MATE, other);
-                }
+                // TODO: Would n.getLabel==other be better!?
+//                if (other.getLabel(MATE) == blossom) {
+//                    other.setLabel(MATE, node);
+//                    node.setLabel(MATE, other);
+//                }
                 graph.createEdge(node, other);
             }
         }
@@ -378,7 +392,7 @@ public class EdmondsBlossom implements Algorithm {
         // TODO path.size() or -1 ?
 
         // Definetly need to think about this!
-        if (index == -1) index = path.size() - 1;
+        if (index == -1)return;
         List<Node> tempPath = path.subList(0, index);
 
         Node current = tempPath.get(tempPath.size() - 1);
@@ -396,7 +410,10 @@ public class EdmondsBlossom implements Algorithm {
                 break;
             }
         }
-
+        System.out.println(blossom.getLabel(INITIAL_MAPPING));
+        System.out.println(current);
+        System.out.println(current.getLabel(MATE));
+        System.out.println("cycles were" + cycles);
         while (current.getLabel(FATHER) != blossom.getLabel(FATHER)) {
             tempPath.add(current);
             tempPath.add((Node) current.getLabel(MATE));
