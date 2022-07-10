@@ -77,10 +77,6 @@ public class EdmondsBlossom implements Algorithm {
         if (nodeList == null) {
             return;
         }
-        if (nodeList.size() % 2 != 0){
-            System.out.println("Size assertion Failed!");
-            System.out.println("NodeList is: "+ Arrays.toString(nodeList.toArray()));
-        }
         for (int i = 0; i < nodeList.size() - 1; i += 2) {
             Node firstNode = nodeList.get(i);
             Node secondNode = nodeList.get(i + 1);
@@ -94,22 +90,14 @@ public class EdmondsBlossom implements Algorithm {
         node = (Node) node.getLabel(FATHER);
         path.add(node);
         while (node.getLabel(MATE) != null) {
-            System.out.println("mate:" + node.getLabel(MATE));
-            System.out.println("father:" + node.getLabel(FATHER));
             node = (Node) node.getLabel(FATHER);
             path.add(node);
-            System.out.println(node.getLabel(MATE));
         }
 
-        while (superNodes.size() > 0) {
-            System.out.println("Supernodes before: " + superNodes);
+        while (!superNodes.isEmpty()) {
             Node blossom = superNodes.pop();
-            System.out.println("Supernode that should have been deleted :" + blossom);
-            System.out.println("Supernodes after: " + superNodes);
             expandBlossom(blossom);
-            System.out.println("Path before: " + Arrays.toString(path.toArray()) + " and trying to remove " + blossom);
             replacePath(blossom, path);
-            System.out.println("Path after: " + Arrays.toString(path.toArray()));
         }
 
         while (path.get(0).getLabel(MATE) != null) {
@@ -121,7 +109,6 @@ public class EdmondsBlossom implements Algorithm {
         }
 
         return path;
-
     }
 
 
@@ -344,17 +331,6 @@ public class EdmondsBlossom implements Algorithm {
             }
         }
         return edges;
-    }
-
-    private Edge getEdgeBetween(Node n1, Node n2) {
-        Iterator<Edge> edgeIterator = n1.undirectedEdges();
-        while (edgeIterator.hasNext()) {
-            Edge edge = edgeIterator.next();
-            if (edge.getOtherEnd(n1) == n2) {
-                return edge;
-            }
-        }
-        return null;
     }
 
 }
