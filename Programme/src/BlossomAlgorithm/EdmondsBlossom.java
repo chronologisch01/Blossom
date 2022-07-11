@@ -45,8 +45,11 @@ public class EdmondsBlossom implements Algorithm {
         cycles = new HashMap<>();
         graph = input.getGraph();
         usedSuperNode = false;
-
-        findMaximumMatching();
+        try {
+            findMaximumMatching();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
 
         changeGeometry();
         if (usedSuperNode) return new Parameter(graph, "Supernodes have been used!");
@@ -85,7 +88,7 @@ public class EdmondsBlossom implements Algorithm {
         }
     }
 
-    private List<Node> constructAugmentingPath(Node node) {
+    private List<Node> constructAugmentingPath(Node node) throws Exception {
         List<Node> path = new ArrayList<>(List.of(node));
         node = (Node) node.getLabel(FATHER);
         path.add(node);
@@ -121,7 +124,7 @@ public class EdmondsBlossom implements Algorithm {
         }
     }
 
-    private List<Node> findAugmentingPath(Node root) {
+    private List<Node> findAugmentingPath(Node root) throws Exception{
         clearNodes();
         // Do need a deque here, because I want to add at the beginning later!
         Deque<Node> queue = new ArrayDeque<>(List.of(root));
@@ -185,7 +188,7 @@ public class EdmondsBlossom implements Algorithm {
         return null;
     }
 
-    private void findMaximumMatching() {
+    private void findMaximumMatching() throws Exception{
         boolean foundPath = true;
         while (foundPath) {
             foundPath = false;
@@ -282,7 +285,7 @@ public class EdmondsBlossom implements Algorithm {
 
     }
 
-    private void replacePath(Node blossom, List<Node> path) {
+    private void replacePath(Node blossom, List<Node> path) throws Exception{
         int index = path.indexOf(blossom);
         if (index == -1)return;
         List<Node> tempPath = path.subList(0, index);
@@ -301,6 +304,7 @@ public class EdmondsBlossom implements Algorithm {
         }
 
         while (current.getLabel(FATHER) != blossom.getLabel(FATHER)) {
+            if(tempPath.size()> graph.countNodes())throw new Exception("Endlosschleife in der replacePath Methode!");
             tempPath.add(current);
             tempPath.add((Node) current.getLabel(MATE));
 
