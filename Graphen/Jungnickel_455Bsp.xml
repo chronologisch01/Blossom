@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml>
+  <key id="name" for="node,graph,edge" attr.name="name" attr.type="string">
+    <desc>The name of the NetElement.</desc>
+  </key>
+  <key id="representation" for="node" attr.name="representation" attr.type="string">
+    <desc>Names the class used as NodeRepresentation.</desc>
+  </key>
+  <graph id="g1435" edgedefault="undirected">
+    <node id="n2519">
+      <data key="name">3</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="440.0" y="380.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n2348">
+      <data key="name">4</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="240.0" y="380.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1438">
+      <data key="name">12</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="100.0" y="160.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1647">
+      <data key="name">18</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="440.0" y="480.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1442">
+      <data key="name">16</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="500.0" y="540.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n3006">
+      <data key="name">1</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="440.0" y="180.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1439">
+      <data key="name">8</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="160.0" y="540.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1443">
+      <data key="name">9</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="360.0" y="440.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n2631">
+      <data key="name">5</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="640.0" y="320.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n2832">
+      <data key="name">2</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="440.0" y="260.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n3052">
+      <data key="name">17</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="440.0" y="100.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1437">
+      <data key="name">10</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="360.0" y="540.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1445">
+      <data key="name">6</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="640.0" y="440.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1440">
+      <data key="name">14</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="220.0" y="160.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1436">
+      <data key="name">7</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="160.0" y="440.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1441">
+      <data key="name">15</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="500.0" y="440.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1446">
+      <data key="name">11</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="100.0" y="260.0" />
+        </point>
+      </data>
+    </node>
+    <node id="n1444">
+      <data key="name">13</data>
+      <data key="representation">de.fhstralsund.vinets.graphics.CircleNodeRepresentation</data>
+      <data key="point">
+        <point width="20.0" height="20.0">
+          <pos x="220.0" y="260.0" />
+        </point>
+      </data>
+    </node>
+    <edge id="e2961" source="n2832" target="n2631">
+      <data key="name">#_2961</data>
+    </edge>
+    <edge id="e1448" source="n1440" target="n1446">
+      <data key="name">#_945</data>
+    </edge>
+    <edge id="e1452" source="n1443" target="n1437">
+      <data key="name">#_1140</data>
+    </edge>
+    <edge id="e2670" source="n2631" target="n1445">
+      <data key="name">#_2670</data>
+    </edge>
+    <edge id="e1449" source="n1439" target="n1437">
+      <data key="name">#_1101</data>
+    </edge>
+    <edge id="e2749" source="n2519" target="n1445">
+      <data key="name">#_2749</data>
+    </edge>
+    <edge id="e1450" source="n1437" target="n1442">
+      <data key="name">#_1120</data>
+    </edge>
+    <edge id="e1455" source="n1438" target="n1440">
+      <data key="name">#_911</data>
+    </edge>
+    <edge id="e2790" source="n2519" target="n2631">
+      <data key="name">#_2790</data>
+    </edge>
+    <edge id="e2315" source="n1444" target="n1443">
+      <data key="name">#_2315</data>
+    </edge>
+    <edge id="e1961" source="n1436" target="n1443">
+      <data key="name">#_1961</data>
+    </edge>
+    <edge id="e1447" source="n1440" target="n1444">
+      <data key="name">#_918</data>
+    </edge>
+    <edge id="e1880" source="n1647" target="n1442">
+      <data key="name">#_1880</data>
+    </edge>
+    <edge id="e1624" source="n1441" target="n1442">
+      <data key="name">#_1624</data>
+    </edge>
+    <edge id="e1855" source="n1441" target="n1647">
+      <data key="name">#_1855</data>
+    </edge>
+    <edge id="e2556" source="n2348" target="n2519">
+      <data key="name">#_2556</data>
+    </edge>
+    <edge id="e1906" source="n1443" target="n1439">
+      <data key="name">#_1906</data>
+    </edge>
+    <edge id="e1990" source="n1441" target="n1445">
+      <data key="name">#_1990</data>
+    </edge>
+    <edge id="e1933" source="n1436" target="n1439">
+      <data key="name">#_1933</data>
+    </edge>
+    <edge id="e1451" source="n1438" target="n1446">
+      <data key="name">#_935</data>
+    </edge>
+    <edge id="e2483" source="n2348" target="n1443">
+      <data key="name">#_2483</data>
+    </edge>
+    <edge id="e3099" source="n3052" target="n3006">
+      <data key="name">#_3099</data>
+    </edge>
+    <edge id="e3147" source="n3006" target="n2832">
+      <data key="name">#_3147</data>
+    </edge>
+    <edge id="e2917" source="n2519" target="n2832">
+      <data key="name">#_2917</data>
+    </edge>
+    <edge id="e1454" source="n1444" target="n1446">
+      <data key="name">#_926</data>
+    </edge>
+    <edge id="e2283" source="n1444" target="n1436">
+      <data key="name">#_2283</data>
+    </edge>
+    <edge id="e2448" source="n1436" target="n2348">
+      <data key="name">#_2448</data>
+    </edge>
+    <edge id="e1453" source="n1443" target="n1441">
+      <data key="name">#_1161</data>
+    </edge>
+    <edge id="e2252" source="n1446" target="n1436">
+      <data key="name">#_2252</data>
+    </edge>
+  </graph>
+</graphml>
+<!--Generated by VinetS Framework (Demo-Version 2005) at Thu Dec 31 13:53:48 CET 2020-->
+
