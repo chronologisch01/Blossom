@@ -30,7 +30,7 @@ public class EdmondsBlossom implements Algorithm {
 
     @Override
     public String getHint() {
-        return "Noch am Tryen";
+        return "Find Maximum Matching with Edmonds Blossom Algorithm";
     }
 
     @Override
@@ -47,11 +47,12 @@ public class EdmondsBlossom implements Algorithm {
         usedSuperNode = false;
         try {
             findMaximumMatching();
+            changeGeometry();
         } catch (Exception e){
             e.printStackTrace();
         }
 
-        changeGeometry();
+
         if (usedSuperNode) return new Parameter(graph, "Supernodes have been used!");
         return new Parameter(graph, "finished!");
     }
