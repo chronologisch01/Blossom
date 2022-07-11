@@ -20,7 +20,6 @@ public class EdmondsBlossom implements Algorithm {
     private Graph graph;
     private Stack<Node> superNodes;
 
-    private Map<List, List<List>> cycles;
     private boolean usedSuperNode;
 
     @Override
@@ -42,7 +41,6 @@ public class EdmondsBlossom implements Algorithm {
     @Override
     public Parameter execute(Parameter input) {
         superNodes = new Stack<>();
-        cycles = new HashMap<>();
         graph = input.getGraph();
         usedSuperNode = false;
         try {
